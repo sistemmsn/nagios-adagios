@@ -50,6 +50,7 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
       sed -i 's|/etc/nagios/passwd|/usr/local/nagios/etc/htpasswd.users|'  /etc/httpd/conf.d/adagios.conf 
 
 ```
+- Nota en este proceso tienen que tener el livestatus configurado antes de realizar la verificacion
 
 ### Realizamos la verificacion:
 
@@ -57,6 +58,7 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
 ``` 
 5.    okconfig init && okconfig verify
 
+6.    Reiniciamos el apache y listo.
 ```
 
 Para mas detalles [pagina official](http://adagios.org/).
