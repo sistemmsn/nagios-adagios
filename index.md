@@ -56,7 +56,6 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
       sed -i 's|/usr/sbin/nagios|/usr/local/nagios/bin/nagios|'  /etc/adagios/adagios.conf  && \
       sed -i 's|None|"/usr/local/nagios/var/rw/live"|'  /etc/adagios/adagios.conf && \
 
-
 ```
 ### Realizamos la verificacion:
 
