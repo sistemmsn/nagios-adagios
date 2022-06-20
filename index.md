@@ -43,19 +43,28 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
 
 3.  mkdir -p /usr/local/nagios/etc/adagios
 	    pynag config --append cfg_dir=/usr/local/nagios/etc/adagios
+   
+```
 
 
 ```
+#Agregamos los parametros de configuracion 
+4.    sed -i 's|etc/nagios/nagios.cfg|usr/local/nagios/etc/nagios.cfg|'  /etc/okconfig.conf && \
+      sed -i 's|/etc/nagios/nagios.cfg|/usr/local/nagios/etc/nagios.cfg|'  /etc/adagios/adagios.conf && \
+      sed -i 's|/usr/share/nagios/html/pnp4nagios/index.php|/usr/local/pnp4nagios/share/index.php|'  /etc/adagios/adagios.conf && \
+      sed -i 's|/etc/nagios/adagios/|/usr/local/nagios/etc/adagios/|'  /etc/adagios/adagios.conf && \
+      sed -i 's|/usr/sbin/nagios|/usr/local/nagios/bin/nagios|'  /etc/adagios/adagios.conf  && \
+      sed -i 's|None|"/usr/local/nagios/var/rw/live"|'  /etc/adagios/adagios.conf && \
 
+
+```
 ### Realizamos la verificacion:
 
+
+``` 
+5.    okconfig init && okconfig verify
+
 ```
-
-okconfig init && okconfig verify
-
-```
-
-
 
 Para mas detalles [pagina official](http://adagios.org/).
 
