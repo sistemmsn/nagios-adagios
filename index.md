@@ -6,7 +6,7 @@ Pasos para la instalacion de adagios de manera correcta
 
 
 ```
-# Header 1
+# by sistemmsn
 
 rpm -ihv http://opensource.is/repo/ok-release.rpm \
 	&& rpm -Uvh https://labs.consol.de/repo/stable/rhel7/x86_64/labs-consol-stable.rhel7.noarch.rpm \
@@ -14,16 +14,6 @@ rpm -ihv http://opensource.is/repo/ok-release.rpm \
  
 yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptools postfix python-pip mod_wsgi 
 
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
 ### Una vez instalado los requerimientos:
@@ -48,13 +38,16 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
 
 
 ```
-#Agregamos los parametros de configuracion 
+#Agregamos los parametros de configuracion
+
+ 
 4.    sed -i 's|etc/nagios/nagios.cfg|usr/local/nagios/etc/nagios.cfg|'  /etc/okconfig.conf && \
       sed -i 's|/etc/nagios/nagios.cfg|/usr/local/nagios/etc/nagios.cfg|'  /etc/adagios/adagios.conf && \
       sed -i 's|/usr/share/nagios/html/pnp4nagios/index.php|/usr/local/pnp4nagios/share/index.php|'  /etc/adagios/adagios.conf && \
       sed -i 's|/etc/nagios/adagios/|/usr/local/nagios/etc/adagios/|'  /etc/adagios/adagios.conf && \
       sed -i 's|/usr/sbin/nagios|/usr/local/nagios/bin/nagios|'  /etc/adagios/adagios.conf  && \
       sed -i 's|None|"/usr/local/nagios/var/rw/live"|'  /etc/adagios/adagios.conf && \
+      sed -i 's|/etc/nagios/passwd|/usr/local/nagios/etc/htpasswd.users|'  /etc/httpd/conf.d/adagios.conf 
 
 ```
 ### Realizamos la verificacion:
