@@ -36,9 +36,9 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
    
 ```
 
+#Agregamos los parametros de configuracion
 
 ```
-#Agregamos los parametros de configuracion
 
  
 4.    sed -i 's|etc/nagios/nagios.cfg|usr/local/nagios/etc/nagios.cfg|'  /etc/okconfig.conf && \
@@ -50,6 +50,7 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
       sed -i 's|/etc/nagios/passwd|/usr/local/nagios/etc/htpasswd.users|'  /etc/httpd/conf.d/adagios.conf 
 
 ```
+
 ### Realizamos la verificacion:
 
 
