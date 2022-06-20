@@ -1,18 +1,19 @@
 ## Adagios para mortales
 
+Pasos para la instalacion de adagios de manera correcta
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Requerimiento
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
+```
 # Header 1
-## Header 2
-### Header 3
+
+rpm -ihv http://opensource.is/repo/ok-release.rpm \
+	&& rpm -Uvh https://labs.consol.de/repo/stable/rhel7/x86_64/labs-consol-stable.rhel7.noarch.rpm \
+	&& yum update -y ok-release
+ 
+yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptools postfix python-pip mod_wsgi 
+
 
 - Bulleted
 - List
@@ -25,9 +26,40 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
+### Una vez instalado los requerimientos:
+
+```
+1. cd  /usr/local/nagios/etc
+
+2.  git init /usr/local/nagios/etc
+    git config user.name "admin"
+    git config user.email "admin@adagios.local"
+    git add . 
+    git commit -a -m "Initial commit"
+
+```
+
+```
+
+3.  mkdir -p /usr/local/nagios/etc/adagios
+	    pynag config --append cfg_dir=/usr/local/nagios/etc/adagios
+
+
+```
+
+### Realizamos la verificacion:
+
+```
+
+okconfig init && okconfig verify
+
+```
+
+
+
 Para mas detalles [pagina official](http://adagios.org/).
 
-### Jekyll Themes
+### Realizamos la verificacion
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sistemmsn/nagios-adagios/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
