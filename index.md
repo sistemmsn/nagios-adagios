@@ -61,4 +61,7 @@ yum --enablerepo=ok-testing install -y  git adagios okconfig acl python-setuptoo
 6.    Reiniciamos el apache y listo.
 ```
 
+- Nota en el OKconfig requiere de otras configuraciones eso lo realizare despues 
+
+
 Para mas detalles [pagina official](http://adagios.org/).
